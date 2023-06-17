@@ -1,0 +1,13 @@
+# Golang specific
+*.go.cover
+
+# OS generated files
+**/.DS_Store
+
+# IDE generated files
+**/.idea
+**/.vscode
+
+# Other
+bin
+pkg
