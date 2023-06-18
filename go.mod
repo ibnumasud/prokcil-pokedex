@@ -1,3 +1,3 @@
-module github.com/ibnumasud/pokedex
+module github.com/ibnumasud/prokcil-pokedex
 
 go 1.20
