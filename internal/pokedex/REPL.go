@@ -26,6 +26,16 @@ func getCommandList() map[string]cliCommand {
 			description: "Exit the program",
 			callback:    commandExit,
 		},
+		"map": {
+			name:        "map",
+			description: "Prints the map",
+			callback:    commandMap,
+		},
+		"mapb": {
+			name:        "mapb",
+			description: "Prints the map with back order",
+			callback:    commandMapb,
+		},
 	}
 }
 
@@ -44,6 +54,23 @@ func commandHelp() error {
 // Function commandExit exits the program
 func commandExit() error {
 	os.Exit(0)
+	return nil
+}
+
+// Function commandMap prints the map
+func commandMap() error {
+	locationResponse, err := NewMyHttpClient().ListLocations()
+	if err != nil {
+		return err
+	}
+	for _, location := range locationResponse.Results {
+		fmt.Println(location.Name)
+	}
+	return nil
+}
+
+// Function commandMapb prints the map with back order
+func commandMapb() error {
 	return nil
 }
 
