@@ -48,7 +48,7 @@ func commandExit() error {
 }
 
 // Function replScanner scans the input and executes the command
-func replScanner(scanner *bufio.Scanner, stdin *os.File) {
+func ReplScanner(scanner *bufio.Scanner, stdin *os.File) {
 	for {
 		fmt.Print("pokedex > ")
 		scanner.Scan()
