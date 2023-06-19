@@ -59,13 +59,16 @@ func commandExit() error {
 
 // Function commandMap prints the map
 func commandMap() error {
-	locationResponse, err := NewMyHttpClient().ListLocations()
+	client := NewMyHttpClient()
+	locationResponse, err := client.ListLocations(nil)
+
 	if err != nil {
 		return err
 	}
 	for _, location := range locationResponse.Results {
 		fmt.Println(location.Name)
 	}
+	client.next = locationResponse.Next
 	return nil
 }
 

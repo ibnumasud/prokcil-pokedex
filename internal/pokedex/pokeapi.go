@@ -34,8 +34,12 @@ type RespShallowLocations struct {
 }
 
 // Function http.get request from PokeAPI
-func (c *myHttpClient) ListLocations() (RespShallowLocations, error) {
+func (c *myHttpClient) ListLocations(next *string) (RespShallowLocations, error) {
 	url := baseURL + "/location-area"
+	if next != nil {
+		url = *next
+	}
+
 	//Create new Request
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
